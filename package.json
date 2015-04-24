@@ -1,5 +1,5 @@
 {
-  "name": "loopback-filter-to-lucene",
+  "name": "loopback-filter",
   "version": "0.1.0",
   "description": "Loopback filter JSON to Apache Lucene string",
   "main": "index.js",
