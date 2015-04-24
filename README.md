@@ -19,5 +19,5 @@ npm test / make test
 
 ## Release Note
 
-1.0.0
+0.1.0
 Support Apache Lucene and / or / between / gt / gte / lt / lte
