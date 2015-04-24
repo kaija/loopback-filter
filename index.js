@@ -1,4 +1,4 @@
-buildqSearch = exports.buildqSearch = function(obj) {
+buildLucene = exports.buildLucene = function(obj) {
   var keys = Object.keys(obj);
   var search = '';
   for (i in keys) {
@@ -6,14 +6,14 @@ buildqSearch = exports.buildqSearch = function(obj) {
     switch (keys[i])
     {
       case 'where'://Should follow a object
-        search = buildqSearch(obj[keys[i]]);
+        search = buildLucene(obj[keys[i]]);
         break;
       case 'and':
         var a = obj[keys[i]];
-        search = buildqSearch(obj[keys[i]][0]) + ' AND ' + buildqSearch(obj[keys[i]][1]);
+        search = buildLucene(obj[keys[i]][0]) + ' AND ' + buildLucene(obj[keys[i]][1]);
         break;
       case 'or':
-        search = buildqSearch(obj[keys[i]][0]) + ' OR ' + buildqSearch(obj[keys[i]][1]);
+        search = buildLucene(obj[keys[i]][0]) + ' OR ' + buildLucene(obj[keys[i]][1]);
         break;
       case 'gt':
         var v = obj[keys[i]] + 1;
@@ -41,7 +41,7 @@ buildqSearch = exports.buildqSearch = function(obj) {
         break;
       default:
         if (typeof(obj[keys[i]]) == "object") {
-          search = keys[i] + ':' + buildqSearch(obj[keys[i]]);
+          search = keys[i] + ':' + buildLucene(obj[keys[i]]);
         }else{
           search = keys[i] + ':' + obj[keys[i]];
         }
