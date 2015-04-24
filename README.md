@@ -21,3 +21,6 @@ npm test / make test
 
 0.1.0
 Support Apache Lucene and / or / between / gt / gte / lt / lte
+
+0.1.1
+Fixed typo of package name and version
