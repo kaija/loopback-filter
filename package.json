@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/kaija/loopback-filter-to-lucene.git"
+    "url": "https://github.com/kaija/loopback-filter.git"
   },
   "keywords": [
     "apache",
@@ -21,7 +21,7 @@
   "bugs": {
     "url": "https://github.com/kaija/loopback-filter-to-lucene/issues"
   },
-  "homepage": "https://github.com/kaija/loopback-filter-to-lucene",
+  "homepage": "https://github.com/kaija/loopback-filter",
   "devDependencies": {
     "chai": "^2.2.0",
     "mocha": "^2.2.4",
