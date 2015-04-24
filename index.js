@@ -10,10 +10,10 @@ buildLucene = exports.buildLucene = function(obj) {
         break;
       case 'and':
         var a = obj[keys[i]];
-        search = buildLucene(obj[keys[i]][0]) + ' AND ' + buildLucene(obj[keys[i]][1]);
+        search = '(' + buildLucene(obj[keys[i]][0]) + ' AND ' + buildLucene(obj[keys[i]][1]) + ')';
         break;
       case 'or':
-        search = buildLucene(obj[keys[i]][0]) + ' OR ' + buildLucene(obj[keys[i]][1]);
+        search = '(' + buildLucene(obj[keys[i]][0]) + ' OR ' + buildLucene(obj[keys[i]][1]) + ')';
         break;
       case 'gt':
         var v = obj[keys[i]] + 1;

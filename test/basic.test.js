@@ -7,13 +7,13 @@ describe('Apache Lucene query language', function(){
   it('and', function(done){
     var input = {where:{and:[{age:19},{sex:'male'}]}};
     var output = lf.buildLucene(input);
-    assert(output == "age:19 AND sex:male", 'output not expected');
+    assert(output == "(age:19 AND sex:male)", 'output not expected');
     done();
   });
   it('or', function(done){
     var input = {where:{or:[{age:19},{sex:'male'}]}};
     var output = lf.buildLucene(input);
-    assert(output == "age:19 OR sex:male", 'output not expected');
+    assert(output == "(age:19 OR sex:male)", 'output not expected');
     done();
   });
   it('between', function(done){
@@ -44,6 +44,12 @@ describe('Apache Lucene query language', function(){
     var input = {where:{size: {lte: 3}}};
     var output = lf.buildLucene(input);
     assert(output == "size:[* TO 3]", 'output not expected');
+    done();
+  });
+  it('and + or', function(done){
+    var input = {where:{or:[{and:[{age:19},{sex:'male'}]}, {size:3}]}};
+    var output = lf.buildLucene(input);
+    assert(output == "((age:19 AND sex:male) OR size:3)", 'output not expected');
     done();
   });
 });
